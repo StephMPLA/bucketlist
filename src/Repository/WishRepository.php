@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Wish;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use function Symfony\Component\String\s;
 
 /**
  * @extends ServiceEntityRepository<Wish>
@@ -16,6 +17,17 @@ class WishRepository extends ServiceEntityRepository
         parent::__construct($registry, Wish::class);
     }
 
+    public function getWishes()
+    {
+        //Version QueryBuilder
+        $queryBuilder = $this->createQueryBuilder('s');
+        $queryBuilder->andWhere('s.isPublished = :isPublished');
+            $queryBuilder->setParameter("isPublished", 1);
+            $queryBuilder->orderBy('s.dateCreated', 'DESC');
+
+
+        return $queryBuilder->getQuery()->getResult();
+    }
     //    /**
     //     * @return Wish[] Returns an array of Wish objects
     //     */
