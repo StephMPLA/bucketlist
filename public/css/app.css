@@ -1,0 +1,40 @@
+/* Réinitialiser les marges par défaut */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Couleurs du body, header, et footer */
+body {
+    background-color: #fdefe4; /* Couleur du body */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #a4a48c; /* Couleur du header */
+    padding: 20px 20px 20px 0; /* Espace intérieur : 50px à droite pour le texte */
+}
+
+footer {
+    background-color: #ebdad0; /* Couleur du footer */
+    text-align: center;
+    padding: 10px 50px 10px 0; /* Espace intérieur : 50px à droite pour le texte */
+}
+
+/* Contenu principal */
+.content {
+    flex: 1;
+    padding-right: 50px; /* Espace à droite pour le texte */
+    padding-left: 0; /* Pas de padding à gauche pour que la couleur reste collée */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Style pour les titres et paragraphes */
+h1, p {
+    padding-right: 50px; /* Espace à droite pour le texte */
+    padding-left: 50px;
+}

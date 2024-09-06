@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Bucket-List{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ asset('css/body.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+</head>
+<body>
+    <header>
+        <h1><img src="{{ asset('img/logo.png') }}" alt="Bucket-list!">Bucket-list</h1>
+        {% include('inc/nav.html.twig') %}
+    </header>
+    <main>
+        {% block body %}
+{% endblock %}
+    </main>
+    <footer>
+        {% include('inc/footer.html.twig') %}
+    </footer>
+</body>
+</html>
