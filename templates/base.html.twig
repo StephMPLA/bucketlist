@@ -16,6 +16,15 @@
         <h1><img src="{{ asset('img/logo.png') }}" alt="Bucket-list!">Bucket-list</h1>
         {% include('inc/nav.html.twig') %}
     </header>
+    <!--Ajout message si envoi de formulaire OK-->
+    {# read and display all flash messages #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <main>
         {% block body %}
 {% endblock %}
