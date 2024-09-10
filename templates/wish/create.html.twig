@@ -1,27 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-Add you wishes !
+    Add your wishes!
 {% endblock %}
 
 {% block body %}
-       <section class="wish-form">
-           <h2>Add your wishes!</h2>
-           {{ form_start(wishCreate) }}
-           <div class="form-group">
-               {{ form_label(wishCreate.title, 'Your idea') }}
-               {{ form_widget(wishCreate.title) }}
-           </div>
-           <div class="form-group">
-               {{ form_label(wishCreate.description, 'Please describe it!') }}
-               {{ form_widget(wishCreate.description) }}
-           </div>
-           <div class="form-group">
-               {{ form_label(wishCreate.author, 'Your username') }}
-               {{ form_widget(wishCreate.author) }}
-           </div>
-           <button class="btn" type="submit">Let’s go!</button>
-           {{ form_end(wishCreate) }}
-       </section>
+    <section class="wish-form">
+        <h2>Add your wishes!</h2>
+        {{ form_start(wishCreate) }}
+        <div class="form-group">
+            {{ form_label(wishCreate.title, 'Your idea') }}
+            {{ form_widget(wishCreate.title) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(wishCreate.description, 'Please describe it!') }}
+            {{ form_widget(wishCreate.description) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(wishCreate.author, 'Your username') }}
+            {{ form_widget(wishCreate.author) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(wishCreate.category, 'Select Category') }}
+            {{ form_widget(wishCreate.category) }}
+        </div>
+        <button class="btn" type="submit">Let’s go!</button>
+        {{ form_end(wishCreate) }}
+    </section>
 {% endblock %}
-

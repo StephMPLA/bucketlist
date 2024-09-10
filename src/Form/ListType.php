@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Wish;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,6 +17,11 @@ class ListType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('author')
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'name', // Permet d'afficher le nom de la catégorie
+                'label' => 'Category',
+            ])
         ;
     }
 

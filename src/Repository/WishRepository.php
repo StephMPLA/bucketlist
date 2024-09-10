@@ -28,6 +28,15 @@ class WishRepository extends ServiceEntityRepository
 
         return $queryBuilder->getQuery()->getResult();
     }
+    public function countWishesByCategory()
+    {
+        $queryBuilder = $this->createQueryBuilder('w')
+            ->select('c.name AS categoryName, COUNT(w.id) AS wishCount')
+            ->join('w.category', 'c')
+            ->groupBy('c.name');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
     //    /**
     //     * @return Wish[] Returns an array of Wish objects
     //     */

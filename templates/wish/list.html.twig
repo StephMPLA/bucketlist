@@ -1,10 +1,24 @@
+{# templates/wish/list.html.twig #}
 {% extends 'base.html.twig' %}
-{% block body %}
-<section>
-    {% for wish in wish %}
-        <a href="{{ path('details', { 'id': wish.id }) }}">{{ wish.title }}</a>
-    {% endfor %}
-</section>
-{% endblock %}
 
-{% block title %} {{ parent() }}|Home{% endblock %}
+{% block title %} Liste des idées {% endblock %}
+
+{% block body %}
+        <h1>Liste des idées</h1>
+
+        {# Crée un dictionnaire pour stocker le nombre de souhaits par catégorie #}
+        {% set categoryWishCount = {} %}
+        {% for categoryCount in categoryCounts %}
+                {% set categoryWishCount = categoryWishCount|merge({(categoryCount.categoryName): categoryCount.wishCount}) %}
+        {% endfor %}
+
+        <ul>
+                {% for wish in wishes %}
+                        <li>
+                                <a href="{{ path('details', {'id': wish.id}) }}">{{ wish.title }}</a>
+                                - Catégorie : {{ wish.category.name }}
+                                - Nombre de souhaits : {{ categoryWishCount[wish.category.name] }}
+                        </li>
+                {% endfor %}
+        </ul>
+{% endblock %}

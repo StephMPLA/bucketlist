@@ -1,13 +1,11 @@
+{# templates/wish/details.html.twig #}
 {% extends 'base.html.twig' %}
 
-
 {% block title %} Détails de {{ wish.title }} {% endblock %}
-
 
 {% block body %}
     <h1>{{ wish.title }}</h1>
     <p>{{ wish.description }}</p>
     <p>Auteur : {{ wish.author }}</p>
-
+    <p>Catégorie : {{ wish.category.name }}</p>
 {% endblock %}
-

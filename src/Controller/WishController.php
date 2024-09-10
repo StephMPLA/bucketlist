@@ -42,13 +42,14 @@ class WishController extends AbstractController
     #[Route('/list', name: 'app_wish_list', methods: ['GET'])]
     public function list(WishRepository $wishRepository): Response
     {
-        $wish = $wishRepository->findBy(
+        $wishes = $wishRepository->findBy(
             ['isPublished' => 1],    // Filtre : uniquement les éléments publiés (isPublished = 1)
             ['dateCreated' => 'DESC'] // Tri : du plus récent au plus ancien
         );
-
+        $categoryCounts = $wishRepository->countWishesByCategory();
         return $this->render('wish/list.html.twig',
-        ['wish' => $wish]);
+        ['wishes' => $wishes,
+            'categoryCounts' => $categoryCounts]);
     }
 
     #[Route('/create', name: 'create', methods: ['GET', 'POST'])]

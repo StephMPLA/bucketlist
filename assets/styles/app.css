@@ -1,41 +1,50 @@
+*{
+    margin:0;
+}
+
+html{
+    height:100%;
+}
+
 body {
-    background: linear-gradient(#000000, #132135);
+    min-height: 100%;
+    margin: 0;
+    background-color: #fdefe4;
     background-attachment: fixed;
-    color: #EEE;
     font-family: 'Crimson Text', serif;
+    display: flex;
+    flex-direction: column;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 5px;
+header {
+    background-color: #a4a48c;
+    padding: 5%
 }
-
-a {
-    color: inherit;
+a{
     text-decoration: none;
+    padding-right: 20px;
+    color: black;
+}
+header>h1{
+    font-size:4rem;
+    margin-bottom: 5%;
 }
 
 a:hover {
-    color: #BC956B;
+    color: #ffffff;
 }
 
 img {
-    max-width: 100%;
-}
-
-body > .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    max-width: 30%;
 }
 
 header img {
-    height: 70px;
+    height: 60px;
 }
 
 main {
     flex: 1;
+    margin-top: 2%;
 }
 
 nav ul {
@@ -52,4 +61,23 @@ nav li {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+.pos{
+    margin-left : 20%;
+}
+form {
+    margin: 20px; /* Ajustez cette valeur selon vos besoins */
+}
+
+form input, form select, form textarea {
+    margin-bottom: 10px; /* Ajoutez un espace entre les éléments du formulaire */
+    padding: 8px; /* Optionnel : ajoutez un peu de padding pour une meilleure lisibilité */
+    border: 1px solid #ccc; /* Optionnel : ajoutez une bordure légère */
+    border-radius: 4px; /* Optionnel : arrondissez les coins */
+}
+
+footer{
+    background-color: #ebdad0;
+    text-align: center;
+    padding : 10px 0;
 }
