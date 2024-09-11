@@ -16,7 +16,8 @@ body {
 }
 header {
     background-color: #a4a48c;
-padding: 1%
+   padding-top: 1%;
+    padding-bottom: 1%;
 }
 a{
     text-decoration: none;
@@ -24,8 +25,7 @@ a{
     color: black;
 }
 header>h1{
-    font-size:4rem;
-    margin-bottom: 5%;
+    font-size:2Rem;
 }
 
 
@@ -50,6 +50,7 @@ nav ul {
     display: flex;
     list-style: none;
     padding-left: 0;
+    padding-top: 1%;
 }
 
 nav li {
