@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Wish;
 use App\Form\ListType;
+use App\MyService\Censurator;
 use App\Repository\WishRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use phpDocumentor\Reflection\Types\Object_;
@@ -53,7 +54,10 @@ class WishController extends AbstractController
     }
 
     #[Route('/create', name: 'create', methods: ['GET', 'POST'])]
-    public function create(Request $request, EntityManagerInterface $entityManager): Response
+    public function create(
+        Request                $request,
+        EntityManagerInterface $entityManager,
+        Censurator             $censurator): Response
     {
         $wish = new Wish();
         $wishForm = $this->createForm(ListType::class, $wish);
@@ -62,6 +66,10 @@ class WishController extends AbstractController
 
         //Si on envoi le formulaire et si il est valid
         if ($wishForm->isSubmitted() && $wishForm->isValid()) {
+
+            $purifiedDescription = $censurator->purify($wish->getDescription());
+            $wish->setDescription($purifiedDescription);
+
             //Date de creation ne peut etre nul donc crée la date d'aujourdhui
             $wish->setDateCreated(new \DateTime());
             $entityManager->persist($wish);
